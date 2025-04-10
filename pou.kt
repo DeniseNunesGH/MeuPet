@@ -1,12 +1,15 @@
 class meuPet {
     var nivelDeFome = 50
     var nivelFelicidade = 50
-    var nivelDeDormes = 8
     var nome = " "
 
     fun alimentar() {
-        nivelDeFome -= 10
-        println("$nome foi alimentado. O nível de fome diminuiu.")
+
+        if (nivelDeFome > 0) {
+            nivelDeFome -= 10
+            println("$nome foi alimentado. O nível de fome diminuiu.")
+        } else { println("$nome está satisfeito.")
+        }
         //quanto maior = mais fome
         //se chegar a 100 = morre/foge/some
         //lvl up = quanto mais comer
@@ -15,8 +18,12 @@ class meuPet {
     }
 
     fun brincar() {
+        if (nivelFelicidade < 100) {
         nivelFelicidade += 10
         println("$nome está brincando e se sentindo mais feliz.")
+        } else {
+            println("$nome está se sentindo muito feliz")
+        }
         //quanto maior = maior a felicidade e menor o tempo de duração
         //se chegara a 100 = morre/foge/some
         //lvl up = quanto mais comer
@@ -25,7 +32,9 @@ class meuPet {
     }
 
     fun descansar() {
-        //
+        println("$nome está dando uma sonequita e se sente mais relaxado.")
+        nivelDeFome += 5
+        nivelFelicidade += 5
     }
 
     fun verificarStatus() {
